@@ -13,7 +13,7 @@
   elements:
   - title: 顧客情報
     name: User Info
-    model: thelook_jp
+    model: thelook_kr
     explore: order_items
     type: looker_single_record
     fields: [users.id, users.email, users.name, users.traffic_source, users.created_month,
@@ -39,7 +39,7 @@
     height: 6
   - title: 累計受注回数
     name: Lifetime Orders
-    model: thelook_jp
+    model: thelook_kr
     explore: order_items
     type: single_value
     fields: [order_items.order_count]
@@ -60,7 +60,7 @@
     height: 3
   - title: 返品回数
     name: Total Items Returned
-    model: thelook_jp
+    model: thelook_kr
     explore: order_items
     type: single_value
     fields: [order_items.count]
@@ -81,7 +81,7 @@
     height: 3
   - title: 受注履歴
     name: Items Order History
-    model: thelook_jp
+    model: thelook_kr
     explore: order_items
     type: looker_grid
     fields: [order_items.id, products.item_name, order_items.status, order_items.created_date,
@@ -101,7 +101,7 @@
     height: 5
   - title: カテゴリー比率
     name: Favorite Categories
-    model: thelook_jp
+    model: thelook_kr
     explore: order_items
     type: looker_pie
     fields: [products.category, order_items.count]
@@ -132,7 +132,7 @@
     height: 5
   - title: 所在地
     name: User Location
-    model: thelook_jp
+    model: thelook_kr
     explore: order_items
     type: looker_geo_coordinates
     fields: [users.count, users.location]
@@ -177,7 +177,7 @@
     height: 12
   # - title: 販促メール生成
   #   name: Generate Promo Email
-  #   model: thelook_jp
+  #   model: thelook_kr
   #   explore: order_items
   #   type: single_value
   #   fields: [users.promo_email]
@@ -219,7 +219,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: thelook_jp
+    model: thelook_kr
     explore: order_items
     listens_to_filters: []
     field: users.email

@@ -7,7 +7,7 @@
   elements:
   - title: Cluster Size by Iteration
     name: Cluster Size by Iteration
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_training_info
     type: looker_bar
     fields: [ecomm_training_info.iteration, cluster_info.centroid_id, cluster_info.cluster_size]
@@ -53,7 +53,7 @@
     height: 7
   - title: Loss By Iteration
     name: Loss By Iteration
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_training_info
     type: looker_area
     fields: [ecomm_training_info.loss, ecomm_training_info.iteration]
@@ -102,7 +102,7 @@
     height: 6
   - title: Number of Clusters Performance
     name: Number of Clusters Performance
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_training_info
     type: looker_line
     fields: [ecomm_model_eval.davies_bouldin_index, ecomm_model_eval.clusters_num]
@@ -149,7 +149,7 @@
     height: 6
   - title: Feature Info
     name: Feature Info
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_training_info
     type: looker_grid
     fields: [ecomm_feature_info.input, ecomm_feature_info.min, ecomm_feature_info.max,
@@ -256,11 +256,11 @@
 
       <nav style="font-size: 18px; padding: 5px 10px 0 10px; height: 60px">
 
-        <a style="padding: 5px 15px; border-bottom: solid 1px #4285F4; float: left; line-height: 40px;" href="/dashboards-next/thelook_jp::cohort_analysis_overview">Cohort Analysis</a>
+        <a style="padding: 5px 15px; border-bottom: solid 1px #4285F4; float: left; line-height: 40px;" href="/dashboards-next/thelook_kr::cohort_analysis_overview">Cohort Analysis</a>
 
-        <a style="padding: 5px 15px; border-bottom: solid 1px #4285F4; float: left; line-height: 40px;" href="/dashboards-next/thelook_jp::cluster_analysis_overview">Cluster Analysis</a>
+        <a style="padding: 5px 15px; border-bottom: solid 1px #4285F4; float: left; line-height: 40px;" href="/dashboards-next/thelook_kr::cluster_analysis_overview">Cluster Analysis</a>
 
-        <a style="padding: 5px 15px; border-top: solid 1px #4285F4; border-left: solid 1px #4285F4; border-right: solid 1px #4285F4; border-radius: 5px 5px 0 0; float: left; line-height: 40px; font-weight: bold; background-color: #eaf1fe;" href="/dashboards-next/thelook_jp::training_evaluation_overview">
+        <a style="padding: 5px 15px; border-top: solid 1px #4285F4; border-left: solid 1px #4285F4; border-right: solid 1px #4285F4; border-radius: 5px 5px 0 0; float: left; line-height: 40px; font-weight: bold; background-color: #eaf1fe;" href="/dashboards-next/thelook_kr::training_evaluation_overview">
 
       Training Evaluation</a>
 
@@ -276,7 +276,7 @@
     height: 2
   - title: Clusters
     name: Clusters
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_training_info
     type: looker_grid
     fields: [ecomm_model_eval.clusters_num]

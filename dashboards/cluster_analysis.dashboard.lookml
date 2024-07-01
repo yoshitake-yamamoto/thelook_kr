@@ -6,7 +6,7 @@
   elements:
   - title: Spending Behavior by Clusters
     name: Spending Behavior by Clusters
-    model: thelook_jp
+    model: thelook_kr
     explore: kmeans_model5
     type: looker_grid
     fields: [kmeans_model5.feature, kmeans_model5.centroid_id, kmeans_model5.avg_qty]
@@ -77,7 +77,7 @@
     height: 6
   - title: "# of Customers Per Cluster"
     name: "# of Customers Per Cluster"
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: looker_bar
     fields: [ecomm_predict.centroid_id, ecomm_predict.count]
@@ -149,7 +149,7 @@
     height: 8
   - title: Orders vs Web Events
     name: Orders vs Web Events
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: looker_column
     fields: [ecomm_predict.centroid_id, ecomm_predict.event_usage, ecomm_predict.purchases]
@@ -228,7 +228,7 @@
     height: 8
   - title: 'Cluster #2'
     name: 'Cluster #2'
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: single_value
     fields: [ecomm_predict.avg_unit_price]
@@ -319,7 +319,7 @@
     height: 2
   - title: 'Cluster #1'
     name: 'Cluster #1'
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: single_value
     fields: [ecomm_predict.avg_unit_price]
@@ -410,7 +410,7 @@
     height: 2
   - title: 'Cluster #3'
     name: 'Cluster #3'
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: single_value
     fields: [ecomm_predict.avg_unit_price]
@@ -501,7 +501,7 @@
     height: 2
   - title: 'Cluster #4'
     name: 'Cluster #4'
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: single_value
     fields: [ecomm_predict.avg_unit_price]
@@ -592,7 +592,7 @@
     height: 2
   - title: 'Cluster #5'
     name: 'Cluster #5'
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: single_value
     fields: [ecomm_predict.avg_unit_price]
@@ -697,9 +697,9 @@
     body_text: |2-
       <div style="border-bottom: solid 1px #4285F4;">
       <nav style="font-size: 18px; padding: 5px 10px 0 10px; height: 60px">
-        <a style="padding: 5px 15px; border-bottom: solid 1px #4285F4; float: left; line-height: 40px;" href="/dashboards-next/thelook_jp::cohort_analysis_overview">Cohort Analysis</a>
-        <a style="padding: 5px 15px; border-top: solid 1px #4285F4; border-left: solid 1px #4285F4; border-right: solid 1px #4285F4; border-radius: 5px 5px 0 0; float: left; line-height: 40px; font-weight: bold; background-color: #eaf1fe;"  href="/dashboards-next/thelook_jp::cluster_analysis_overview">Cluster Analysis</a>
-        <a style="padding: 5px 15px; border-bottom: solid 1px #4285F4; float: left; line-height: 40px;" href="/dashboards-next/thelook_jp::training_evaluation_overview">
+        <a style="padding: 5px 15px; border-bottom: solid 1px #4285F4; float: left; line-height: 40px;" href="/dashboards-next/thelook_kr::cohort_analysis_overview">Cohort Analysis</a>
+        <a style="padding: 5px 15px; border-top: solid 1px #4285F4; border-left: solid 1px #4285F4; border-right: solid 1px #4285F4; border-radius: 5px 5px 0 0; float: left; line-height: 40px; font-weight: bold; background-color: #eaf1fe;"  href="/dashboards-next/thelook_kr::cluster_analysis_overview">Cluster Analysis</a>
+        <a style="padding: 5px 15px; border-bottom: solid 1px #4285F4; float: left; line-height: 40px;" href="/dashboards-next/thelook_kr::training_evaluation_overview">
       Training Evaluation</a>
       </nav>
       </div>
@@ -709,7 +709,7 @@
     height: 2
   - title: Age Distribution
     name: Age Distribution
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: looker_donut_multiples
     fields: [ecomm_predict.centroid_id, users.gender, users.count]
@@ -783,7 +783,7 @@
     height: 9
   - title: 'Age Distribution '
     name: 'Age Distribution '
-    model: thelook_jp
+    model: thelook_kr
     explore: ecomm_predict
     type: looker_bar
     fields: [ecomm_predict.centroid_id, users.age_tier, users.count]
