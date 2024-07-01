@@ -31,6 +31,7 @@ view: order_items {
     drill_fields: [detail*]
   }
 
+
   measure: count_last_28d {
     label: "直近28日の受注件数"
     type: count_distinct
