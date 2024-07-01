@@ -1,5 +1,5 @@
 - dashboard: brand_lookup
-  title: ブランド深掘りダッシュボード
+  title: ブランド深掘り
   layout: newspaper
   preferred_viewer: dashboards-next
   query_timezone: user_timezone
