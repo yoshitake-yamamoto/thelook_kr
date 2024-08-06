@@ -1,5 +1,5 @@
 - dashboard: business_pulse
-  title: EC基本ダッシュボード
+  title: EC대시보드
   layout: newspaper
   preferred_viewer: dashboards
   description: ''
@@ -28,7 +28,7 @@
       users.created_date: 7 days
     limit: 500
     column_limit: 50
-    dynamic_fields: [{table_calculation: goal, label: 目標, expression: '10000', value_format: !!null '',
+    dynamic_fields: [{table_calculation: goal, label: 목표, expression: '10000', value_format: !!null '',
         value_format_name: decimal_0, _kind_hint: dimension, _type_hint: number}]
     query_timezone: America/Los_Angeles
     custom_color_enabled: false
@@ -44,7 +44,7 @@
     colors: ["#5245ed", "#a2dcf3", "#776fdf", "#1ea8df", "#49cec1", "#776fdf", "#49cec1",
       "#1ea8df", "#a2dcf3", "#776fdf", "#776fdf", "#635189"]
     text_color: black
-    single_value_title: 新規顧客獲得数
+    single_value_title: 신규고객획득수
     custom_color: forestgreen
     hidden_fields: []
     y_axes: []
@@ -64,7 +64,7 @@
     col: 0
     width: 4
     height: 4
-  - title: 平均受注単価
+  - title: 평균주문단가
     name: Average Order Sale Price
     model: thelook_kr
     explore: order_items
@@ -147,7 +147,7 @@
     col: 4
     width: 4
     height: 4
-  - title: カテゴリー別受注数推移
+  - title: 카테고리별 수주량 변화 추이
     name: Orders by Day and Category
     model: thelook_kr
     explore: order_items
@@ -229,7 +229,7 @@
     col: 0
     width: 16
     height: 6
-  - title: Webサイト来訪とコンバージョン率
+  - title: 웹사이트 방문 및 전환율
     name: Website Visit Volume vs Conversion Rate
     model: thelook_kr
     explore: events
@@ -288,9 +288,9 @@
       events.sessions_count: line
     series_colors: {}
     series_labels:
-      events.unique_visitors: ユニーク来訪者数
-      sessions.overall_conversion: コンバージョン率
-      events.sessions_count: 合計来訪者数
+      events.unique_visitors: 순 방문자 수
+      sessions.overall_conversion: 전환율
+      events.sessions_count: 방문자합계
     label_color: ["#EA8A2F", "#e9b404"]
     y_axis_orientation: [left, right]
     show_null_points: true
@@ -311,7 +311,7 @@
     col: 0
     width: 10
     height: 7
-  - title: トラフィックソースごとの残存率推移
+  - title: 트래픽소스별 잔존율 변화 추이
     name: Percent of Cohort Still Active by Traffic Source
     model: thelook_kr
     explore: order_items
@@ -400,7 +400,7 @@
     col: 10
     width: 14
     height: 7
-  - title: 年度別売上推移
+  - title: 연도별매상추이
     name: Total Sales, Year over Year
     model: thelook_kr
     explore: order_items
@@ -476,7 +476,7 @@
     col: 16
     width: 8
     height: 10
-  - title: 地域別の平均支出額
+  - title: 지역별 평균 지출액
     name: Highest Spending Users
     model: thelook_kr
     explore: order_items
@@ -549,7 +549,7 @@
     defaults_version: 1
     note_state: collapsed
     note_display: hover
-    note_text: バブルサイズは顧客の平均支出に対応
+    note_text: 버블 크기는고객평균지출액에 비례
     listen:
       State: users.state
       City: users.city
@@ -562,7 +562,7 @@
     col: 10
     width: 14
     height: 9
-  - title: トラフィックソースごとのユーザー傾向
+  - title: 트래픽 소스별 사용자 성향
     name: User Behaviors by Traffic Source
     model: thelook_kr
     explore: order_items
@@ -638,7 +638,7 @@
     col: 0
     width: 10
     height: 7
-  - title: 顧客属性　基礎統計
+  - title: 고객 속성기본통계
     name: User Basic Demographic Profile
     model: thelook_kr
     explore: order_items
@@ -721,7 +721,7 @@
       collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7
       palette_id: fb7bb53e-b77b-4ab6-8274-9d420d3d73f3
     custom_color: ''
-    single_value_title: リピート購買率
+    single_value_title: 재구매율
     conditional_formatting: [{type: greater than, value: 0.1, background_color: "#ffffe5",
         font_color: "#FBB555", color_application: {collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7,
           palette_id: 85de97da-2ded-4dec-9dbd-e6a7d36d5825}, bold: false, italic: false,
@@ -838,9 +838,9 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    single_value_title: 今年の注文件数
+    single_value_title: 올해주문건수
     hidden_fields: [order_items.reporting_period, order_items.created_year]
-    comparison_label: vs 前年同期間
+    comparison_label: vs 전년동기
     custom_color: forestgreen
     y_axes: []
     note_state: collapsed
@@ -859,15 +859,15 @@
     col: 12
     width: 4
     height: 4
-  - name: "<span class='fa fa-users'> </span>顧客統計"
+  - name: "<span class='fa fa-users'> </span>고객통계"
     type: text
-    title_text: "<span class='fa fa-users'> </span>顧客統計"
-    subtitle_text: 顧客を理解する
+    title_text: "<span class='fa fa-users'> </span>고객통계"
+    subtitle_text: 고객정보
     row: 12
     col: 0
     width: 24
     height: 2
-  - title: オンラインで閲覧されているブランド
+  - title: 온라인조회브랜드
     name: Most Viewed Brands Online
     model: thelook_kr
     explore: sessions
@@ -903,7 +903,7 @@
     minimum_column_width: 75
     series_labels:
       #sessions.cart_to_checkout_conversion: Cart Conversion
-      sessions.cart_to_checkout_conversion: CVR（購買/カート）
+      sessions.cart_to_checkout_conversion: CVR（구매/장바구니）
     series_cell_visualizations:
       sessions.count:
         is_active: true
@@ -954,24 +954,24 @@
   - name: "<span class='fa fa-laptop'> </span> Webアナリティクス"
     type: text
     title_text: "<span class='fa fa-laptop'> </span> Webアナリティクス"
-    subtitle_text: Web上での顧客行動を理解する
-    body_text: "<div style='text-align: center;'> <b>推奨アクション</b> ：成功しているブランドについて、\
-      \ ブランド個別ダッシュボードに移行して深堀分析をおこなう</div>"
+    subtitle_text: Web상의고객행동이해
+    body_text: "<div style='text-align: center;'> <b>추천액션</b> ：성공적인브랜드에대해\
+      \ 브랜드별대시보드로 이동하여 심층분ㅅ석</div>"
     row: 23
     col: 0
     width: 24
     height: 3
-  - name: "<span class='fa fa-tachometer'>売上関連指標</span>"
+  - name: "<span class='fa fa-tachometer'>매출관련지표</span>"
     type: text
-    title_text: "<span class='fa fa-tachometer'>売上関連指標</span>"
-    subtitle_text: ビジネスの概況を理解する
+    title_text: "<span class='fa fa-tachometer'>매출관련지표</span>"
+    subtitle_text: 비즈니스현황파악
     row: 0
     col: 0
     width: 24
     height: 2
   filters:
   - name: State
-    title: 州
+    title: 주
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -984,7 +984,7 @@
     listens_to_filters: [Country]
     field: users.state
   - name: City
-    title: 市区町村
+    title: 시군구
     type: field_filter
     default_value: ''
     allow_multiple_values: false
@@ -997,7 +997,7 @@
     listens_to_filters: [State, Country]
     field: users.city
   - name: Traffic Source
-    title: トラフィックソース
+    title: 트래픽소스
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -1010,7 +1010,7 @@
     listens_to_filters: []
     field: users.traffic_source
   - name: User Gender
-    title: 顧客の性別
+    title: 고객성별
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -1023,7 +1023,7 @@
     listens_to_filters: []
     field: users.gender
   - name: Date
-    title: 受注日
+    title: 주문일
     type: date_filter
     default_value: 90 days
     allow_multiple_values: true
@@ -1032,7 +1032,7 @@
       type: relative_timeframes
       display: inline
   - name: Location
-    title: 地域
+    title: 지역
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -1042,7 +1042,7 @@
     listens_to_filters: []
     field: distribution_centers.location
   - name: Country
-    title: 国
+    title: 국가
     type: field_filter
     default_value: ''
     allow_multiple_values: true
