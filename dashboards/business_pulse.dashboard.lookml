@@ -400,7 +400,7 @@
     col: 10
     width: 14
     height: 7
-  - title: 연도별매상추이
+  - title: 년도별매상트랜드
     name: Total Sales, Year over Year
     model: thelook_kr
     explore: order_items
@@ -867,7 +867,7 @@
     col: 0
     width: 24
     height: 2
-  - title: 온라인조회브랜드
+  - title: 온라인에서 가장 많이 본 브랜드
     name: Most Viewed Brands Online
     model: thelook_kr
     explore: sessions
@@ -951,12 +951,12 @@
     col: 10
     width: 14
     height: 7
-  - name: "<span class='fa fa-laptop'> </span> Webアナリティクス"
+  - name: "<span class='fa fa-laptop'> </span> Web분석"
     type: text
     title_text: "<span class='fa fa-laptop'> </span> Webアナリティクス"
     subtitle_text: Web상의고객행동이해
-    body_text: "<div style='text-align: center;'> <b>추천액션</b> ：성공적인브랜드에대해\
-      \ 브랜드별대시보드로 이동하여 심층분ㅅ석</div>"
+    body_text: "<div style='text-align: center;'> <b>추천액션</b> ：상위브랜드에대해\
+      \ 브랜드별대시보드로 이동하여 심층분석</div>"
     row: 23
     col: 0
     width: 24
