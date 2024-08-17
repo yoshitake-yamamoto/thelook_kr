@@ -1,5 +1,5 @@
 view: order_items_share_of_wallet {
-  view_label: "Share of Wallet"
+  view_label: "구매비중"
   #
   #   - measure: total_sale_price
   #     type: sum
@@ -11,15 +11,15 @@ view: order_items_share_of_wallet {
   ########## Comparison for Share of Wallet ##########
 
   filter: item_name {
-    label: "Item Name"
-    view_label: "Share of Wallet (Item Level)"
+    label: "아이템이름"
+    view_label: "구매비중(아이템레벨)"
     suggest_dimension: products.item_name
     suggest_explore: orders_with_share_of_wallet_application
   }
 
   filter: brand {
-    label: "Brand"
-    view_label: "Share of Wallet (Brand Level)"
+    label: "브랜드"
+    view_label: "구매비중(브랜드레벨)"
     suggest_dimension: products.brand
     suggest_explore: orders_with_share_of_wallet_application
   }
@@ -32,9 +32,9 @@ view: order_items_share_of_wallet {
   }
 
   dimension: item_comparison {
-    label: "Item Comparison"
-    view_label: "Share of Wallet (Item Level)"
-    description: "Compare a selected item vs. other items in the brand vs. all other brands"
+    label: "아이템비교"
+    view_label: "구매비중 (아이템레벨)"
+    description: "선택한 항목을 브랜드의 다른 항목과 비교하고 다른 모든 브랜드와 비교합니다"
     sql: CASE
       WHEN {% condition item_name %} rtrim(ltrim(products.item_name)) {% endcondition %}
       THEN concat('(1) ',${products.item_name})
@@ -46,9 +46,9 @@ view: order_items_share_of_wallet {
   }
 
   dimension: brand_comparison {
-    label: "Brand Comparison"
-    view_label: "Share of Wallet (Brand Level)"
-    description: "Compare a selected brand vs. all other brands"
+    label: "브랜드비교"
+    view_label: "구매비중 (브랜드레벨)"
+    description: "선택한 브랜드와 다른 모든 브랜드를 비교"
     sql: CASE
       WHEN  {% condition brand %} rtrim(ltrim(products.brand)) {% endcondition %}
       THEN concat('(1) ',${products.brand})
@@ -58,8 +58,8 @@ view: order_items_share_of_wallet {
   }
 
   measure: total_sale_price_this_item {
-    label: "Total Sale Price This Item"
-    view_label: "Share of Wallet (Item Level)"
+    label: "이 항목의 총 판매 가격"
+    view_label: "구매비중(아이템레벨)"
     type: sum
     hidden: yes
     sql: ${order_items.sale_price} ;;
@@ -72,7 +72,7 @@ view: order_items_share_of_wallet {
   }
 
   measure: total_sale_price_this_brand {
-    label: "当該ブランド合計売上"
+    label: "해당 브랜드 총 매출"
     view_label: "Share of Wallet (Item Level)"
     type: sum
     hidden: yes
@@ -86,8 +86,8 @@ view: order_items_share_of_wallet {
   }
 
   measure: total_sale_price_brand_v2 {
-    view_label: "Share of Wallet (Brand Level)"
-    label: "Total Sales - This Brand"
+    view_label: "구매비중(브랜드레벨)"
+    label: "총매출-해당브랜드"
     type: sum
     value_format_name: usd
     sql: ${order_items.sale_price} ;;
@@ -99,7 +99,7 @@ view: order_items_share_of_wallet {
   }
 
   measure: item_share_of_wallet_within_brand {
-    view_label: "Share of Wallet (Item Level)"
+    view_label: "구매비중(아이템레벨)"
     type: number
     description: "This item sales over all sales for same brand"
     #     view_label: 'Share of Wallet'
@@ -108,7 +108,7 @@ view: order_items_share_of_wallet {
   }
 
   measure: item_share_of_wallet_within_company {
-    view_label: "Share of Wallet (Item Level)"
+    view_label: "구매비중(아이템레벨)"
     description: "This item sales over all sales across website"
     value_format_name: percent_2
     #     view_label: 'Share of Wallet'
@@ -117,7 +117,7 @@ view: order_items_share_of_wallet {
   }
 
   measure: brand_share_of_wallet_within_company {
-    label: "当該ブランド売上シェア"
+    label: "해당 브랜드 매출 점유율"
     view_label: "Share of Wallet (Brand Level)"
     description: "This brand's sales over all sales across website"
     value_format_name: percent_2
