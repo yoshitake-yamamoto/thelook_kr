@@ -1,5 +1,5 @@
 - dashboard: brand_lookup
-  title: ブランド深掘り
+  title: 브랜드심층분석
   layout: newspaper
   preferred_viewer: dashboards-next
   query_timezone: user_timezone
@@ -17,7 +17,7 @@
     # show_tile_shadow: false
     text_tile_text_color: "#556d7a"
   elements:
-  - title: 合計受注回数
+  - title: 총 주문 횟수
     name: Total Orders
     model: thelook_kr
     explore: order_items
@@ -37,7 +37,7 @@
     col: 8
     width: 4
     height: 3
-  - title: 顧客数
+  - title: 고객 수
     name: Total Customers
     model: thelook_kr
     explore: order_items
@@ -51,7 +51,7 @@
     text_color: black
     note_state: expanded
     note_display: hover
-    note_text: このブランドを購入したユニークな顧客人数
+    note_text: 이 브랜드를 구매한 유니크 고객 수
     listen:
       Brand Name: products.brand
       Date: order_items.created_date
@@ -60,7 +60,7 @@
     col: 0
     width: 4
     height: 3
-  - title: 平均受注額
+  - title: 평균 주문 금액
     name: Average Order Value
     model: thelook_kr
     explore: order_items
@@ -84,7 +84,7 @@
     col: 4
     width: 4
     height: 3
-  - title: OS、ソース別トラフィック比率
+  - title: OS, 소스별 트래픽 비율
     name: Brand Traffic by Source, OS
     model: thelook_kr
     explore: events
@@ -132,7 +132,7 @@
     col: 14
     width: 10
     height: 11
-  - title: 上位商品カテゴリー：カート vs コンバージョン
+  - title: 상위상품카테고리：장바구니 vs 전환
     name: Top Product Categories - Cart vs Conversion
     model: thelook_kr
     explore: events
@@ -212,7 +212,7 @@
     col: 0
     width: 14
     height: 6
-  - title: 来訪回数上位顧客
+  - title: 방문 횟수 상위 고객
     name: Top Visitors and Transaction History
     model: thelook_kr
     explore: events
@@ -253,7 +253,7 @@
     col: 12
     width: 12
     height: 8
-  - title: 売上トレンド
+  - title: 매출트랜드
     name: Sales and Sale Price Trend
     model: thelook_kr
     explore: order_items
@@ -313,7 +313,7 @@
     col: 12
     width: 12
     height: 7
-  - title: 受注回数上位顧客
+  - title: 주문횟수상위고객
     name: Top Purchasers of Brand
     model: thelook_kr
     explore: order_items
@@ -345,7 +345,7 @@
     col: 0
     width: 12
     height: 8
-  - title: 時間帯別のセッション数（顧客生涯受注回数ティア別）
+  - title: 시간대별 세션 수 (고객 평생 주문 횟수 티어별)
     name: Website Sessions by Hour of Day and User Lifetime Order Tier
     model: thelook_kr
     explore: events
@@ -412,7 +412,7 @@
     col: 0
     width: 14
     height: 5
-  - title: 相関の強い商品
+  - title: 상관관계가 높은 상품
     name: Most Correlated Items
     model: thelook_kr
     explore: affinity
@@ -503,7 +503,7 @@
     col: 0
     width: 14
     height: 8
-  - title: 別ブランドとの親和性
+  - title: 다른 브랜드와의 친화성
     name: Purchasers of This Brand Also Bought (Brand Affinity)
     model: thelook_kr
     explore: affinity
@@ -579,7 +579,7 @@
     col: 14
     width: 10
     height: 8
-  - title: 顧客ライフサイクルとブランドシェア
+  - title: 고객 라이프사이클과 브랜드 점유율
     name: Brand Share of Wallet over Customer Lifetime
     model: thelook_kr
     explore: orders_with_share_of_wallet_application
@@ -640,7 +640,7 @@
     col: 12
     width: 12
     height: 6
-  - title: 商品カテゴリーランキング
+  - title: 상품 카테고리 순위
     name: Most Popular Categories
     model: thelook_kr
     explore: order_items
@@ -702,43 +702,43 @@
     height: 10
   - name: "<span class='fa fa-dollar'> Brand Overview </span>"
     type: text
-    title_text: "<span class='fa fa-dollar'> ブランド概況 </span>"
-    subtitle_text: ブランドの主要指標を理解する
+    title_text: "<span class='fa fa-dollar'> 브랜드 개요 </span>"
+    subtitle_text: 브랜드의 주요 지표를 이해하기
     row: 0
     col: 0
     width: 24
     height: 2
   - name: "<span class='fa fa-heart'> Affinity Analysis </span>"
     type: text
-    title_text: "<span class='fa fa-heart'> 親和性分析 </span>"
-    subtitle_text: このブランドと親和性の高い商品・ブランドを理解する
-    body_text: "<div style='text-align: center;'><b>推奨アクション</b> 親和性に基づいて、\
-      \ レコメンドキャンペーンを検討する</div>"
+    title_text: "<span class='fa fa-heart'> 친화성 분석 </span>"
+    subtitle_text: 이 브랜드와 친화성이 높은 상품/브랜드 이해하기
+    body_text: "<div style='text-align: center;'><b>추천 액션</b> 친화성을 기반으로\
+      \  추천 캠페인을 검토합니다る</div>"
     row: 15
     col: 0
     width: 24
     height: 3
   - name: "<span class='fa fa-laptop'> Web Analytics </span>"
     type: text
-    title_text: "<span class='fa fa-laptop'> Web分析</span>"
-    subtitle_text: 顧客のWeb上での行動を理解する
+    title_text: "<span class='fa fa-laptop'> Web분석</span>"
+    subtitle_text: 고객의 웹상에서의 행동을 이해하기
     row: 26
     col: 0
     width: 24
     height: 2
   - name: "<span class='fa fa-users'> Top Customers </span>"
     type: text
-    title_text: "<span class='fa fa-users'> 上位顧客 </span>"
-    subtitle_text: お得意様を理解する
-    body_text: "<div style='text-align: center;'><b>推奨アクション</b> 各顧客がどんな商品を購入しているか確認し、\
-      \ 1to1の宣伝アクションをおこなう</div>"
+    title_text: "<span class='fa fa-users'> 상위고객 </span>"
+    subtitle_text: 단골 고객을 이해하기
+    body_text: "<div style='text-align: center;'><b>추천액션</b> 각 고객이 어떤 상품을 구매했는지 확인하고 \
+      \  1:1 홍보활동을합니다う</div>"
     row: 39
     col: 0
     width: 24
     height: 3
   filters:
   - name: Brand Name
-    title: ブランド
+    title: 브랜드
     type: field_filter
     default_value: Calvin Klein
     allow_multiple_values: true
@@ -748,13 +748,13 @@
     listens_to_filters: []
     field: products.brand
   - name: Date
-    title: 日付
+    title: 일자
     type: date_filter
     default_value: 90 days
     allow_multiple_values: true
     required: false
   - name: State
-    title: 州
+    title: 주
     type: field_filter
     default_value: ''
     allow_multiple_values: true
