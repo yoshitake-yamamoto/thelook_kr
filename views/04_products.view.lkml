@@ -1,29 +1,29 @@
 view: products {
   sql_table_name: looker-private-demo.ecomm.products ;;
-  view_label: "商品マスタ"
+  view_label: "상품 마스터"
   ### DIMENSIONS ###
 
   dimension: id {
-    label: "商品ID"
+    label: "상품ID"
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
   }
 
   dimension: category {
-    label: "カテゴリー"
+    label: "카테고리"
     sql: TRIM(${TABLE}.category) ;;
     drill_fields: [department, brand, item_name]
   }
 
   dimension: item_name {
-    label: "商品名"
+    label: "상품명"
     sql: TRIM(${TABLE}.name) ;;
     drill_fields: [id]
   }
 
   dimension: brand {
-    label: "ブランド"
+    label: "브랜드"
     sql: TRIM(${TABLE}.brand) ;;
     drill_fields: [item_name]
     link: {
@@ -37,14 +37,14 @@ view: products {
       icon_url: "https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg"
     }
     link: {
-      label: "{{value}} 分析ダッシュボード"
+      label: "{{value}}  분석 대시보드"
       url: "/dashboards/thelook_jp::brand_lookup?Brand%20Name={{ value | encode_uri }}"
       #url: "/dashboards/IOlEDOPQ12RFCyuUqk38wB?Brand%20Name={{ value | encode_uri }}"
       icon_url: "https://www.seekpng.com/png/full/138-1386046_google-analytics-integration-analytics-icon-blue-png.png"
     }
 
     action: {
-      label: "ブランドプロモーションメールを送信"
+      label: "브랜드 프로모션 메일 발송"
       url: "https://desolate-refuge-53336.herokuapp.com/posts"
       icon_url: "https://sendgrid.com/favicon.ico"
       param: {
@@ -54,23 +54,23 @@ view: products {
       form_param: {
         name: "Subject"
         required: yes
-        default: "ラストチャンス! 20% off {{ value }}"
+        default: "마지막 기회! 20% off {{ value }}"
       }
       form_param: {
         name: "Body"
         type: textarea
         required: yes
         default:
-        "お客様各位
+        "고객 여러분
 
-        平素は格別のご愛顧を賜り、厚く御礼申し上げます。
-        今回は、{{ value }}ブランドの全商品を15%割引でご提供いたします。
-        次回のお会計時にコード「{{ value | upcase }}-MANIA」を入力してください。
+        평소 특별한 애정을 보내주셔서 진심으로 감사드립니다.。
+        이번에는、{{ value }}ブランドの全商品を15%割引でご提供いたします。
+        다음 결제 시 코드「{{ value | upcase }}-MANIA」を入力してください。
         "
       }
     }
     action: {
-      label: "広告キャンペーンを開始"
+      label: "광고 캠페인 시작"
       url: "https://desolate-refuge-53336.herokuapp.com/posts"
       icon_url: "https://www.google.com/s2/favicons?domain=www.adwords.google.com"
       param: {
@@ -79,7 +79,7 @@ view: products {
       }
       form_param: {
         type: select
-        label: "キャンペーンタイプ"
+        label: "캠페인 유형"
         name: "Campaign Type"
         option: { name: "Spend" label: "Spend" }
         option: { name: "Leads" label: "Leads" }
@@ -87,7 +87,7 @@ view: products {
         required: yes
       }
       form_param: {
-        label: "キャンペーン名"
+        label: "캠페인명"
         name: "Campaign Name"
         type: string
         required: yes
@@ -95,7 +95,7 @@ view: products {
       }
 
       form_param: {
-        label: "商品カテゴリー"
+        label: "상품 카테고리"
         name: "Product Category"
         type: string
         required: yes
@@ -103,14 +103,14 @@ view: products {
       }
 
       form_param: {
-        label: "予算"
+        label: "예산"
         name: "Budget"
         type: string
         required: yes
       }
 
       form_param: {
-        label: "キーワード"
+        label: "키워드"
         name: "Keywords"
         type: string
         required: yes
@@ -120,11 +120,11 @@ view: products {
   }
 
   dimension: retail_price {
-    label: "小売価格"
+    label: "소매 가격"
     type: number
     sql: ${TABLE}.retail_price ;;
     action: {
-      label: "更新価格"
+      label: "가격 업데이트"
       url: "https://us-central1-sandbox-trials.cloudfunctions.net/ecomm_inventory_writeback"
       param: {
         name: "Price"
@@ -132,7 +132,7 @@ view: products {
       }
       form_param: {
         name: "Discount"
-        label: "割引ティア"
+        label: "할인 티어"
         type: select
         option: {
           name: "5% off"
@@ -174,7 +174,7 @@ view: products {
   }
 
   dimension: department {
-    label: "メンズ/ウイメンズ"
+    label: "남성/여성"
     sql: TRIM(${TABLE}.department) ;;
   }
 
@@ -184,7 +184,7 @@ view: products {
   }
 
   dimension: distribution_center_id {
-    label: "配送センターID"
+    label: "배송 센터ID"
     type: number
     sql: CAST(${TABLE}.distribution_center_id AS INT64) ;;
   }
@@ -192,20 +192,20 @@ view: products {
   ## MEASURES ##
 
   measure: count {
-    label: "商品数"
+    label: "상품수"
     type: count
     drill_fields: [detail*]
   }
 
   measure: brand_count {
-    label: "ブランド数"
+    label: "브랜드수"
     type: count_distinct
     sql: ${brand} ;;
     drill_fields: [brand, detail2*, -brand_count] # show the brand, a bunch of counts (see the set below), don't show the brand count, because it will always be 1
   }
 
   measure: category_count {
-    label: "カテゴリー数"
+    label: "카테고리수"
     alias: [category.count]
     type: count_distinct
     sql: ${category} ;;
@@ -213,7 +213,7 @@ view: products {
   }
 
   measure: department_count {
-    label: "部署数"
+    label: "부서수"
     alias: [department.count]
     type: count_distinct
     sql: ${department} ;;
@@ -222,7 +222,7 @@ view: products {
 
   measure: prefered_categories {
     hidden: yes
-    label: "好みのカテゴリー"
+    label: "선호카테고리"
     type: list
     list_field: category
     #order_by_field: order_items.count
@@ -231,7 +231,7 @@ view: products {
 
   measure: prefered_brands {
     hidden: yes
-    label: "好みのブランド"
+    label: "선호브랜드"
     type: list
     list_field: brand
     #order_by_field: count
