@@ -1,5 +1,5 @@
 view: user_order_facts {
-  view_label: "顧客マスタ"
+  view_label: "고객 마스터"
   derived_table: {
     sql:
     SELECT
@@ -17,7 +17,7 @@ view: user_order_facts {
   }
 
   dimension: user_id {
-    label: "顧客ID"
+    label: "고객ID"
     primary_key: yes
     hidden: yes
     sql: ${TABLE}.user_id ;;
@@ -33,14 +33,14 @@ view: user_order_facts {
   ##### Time and Cohort Fields ######
 
   dimension_group: first_order {
-    label: "初回受注"
+    label: "첫 주문"
     type: time
     timeframes: [date, week, month, year]
     sql: ${TABLE}.first_order ;;
   }
 
   dimension_group: latest_order {
-    label: "最新受注"
+    label: "최근 주문"
     type: time
     timeframes: [date, week, month, year]
     sql: ${TABLE}.latest_order ;;
@@ -48,14 +48,14 @@ view: user_order_facts {
 
 
   dimension: days_as_customer {
-    label: "継続日数"
-    description: "最新受注日と初回受注日の日数差"
+    label: "지속 일수"
+    description: "최근 주문일과 첫 주문일의 일수 차이"
     type: number
     sql: TIMESTAMP_DIFF(${TABLE}.latest_order, ${TABLE}.first_order, DAY)+1 ;;
   }
 
   dimension: days_as_customer_tiered {
-    label: "継続日数ティア"
+    label: "지속 일수 티어"
     type: tier
     tiers: [0, 1, 7, 14, 21, 28, 30, 60, 90, 120]
     sql: ${days_as_customer} ;;
@@ -65,20 +65,20 @@ view: user_order_facts {
   ##### Lifetime Behavior - Order Counts ######
 
   dimension: lifetime_orders {
-    label: "累計受注回数"
+    label: "누적 주문 횟수"
     type: number
     sql: ${TABLE}.lifetime_orders ;;
   }
 
   dimension: repeat_customer {
-    label: "リピート顧客フラグ"
-    description: "累計受注回数 > 1　か否か"
+    label: "재구매 고객 여부"
+    description: "누적 주문 횟수 > 1인지 여부"
     type: yesno
     sql: ${lifetime_orders} > 1 ;;
   }
 
   dimension: lifetime_orders_tier {
-    label: "累計受注回数ティア"
+    label: "누적 주문 횟수 티어"
     type: tier
     tiers: [0, 1, 2, 3, 5, 10]
     sql: ${lifetime_orders} ;;
@@ -86,14 +86,14 @@ view: user_order_facts {
   }
 
   measure: average_lifetime_orders {
-    label: "平均受注回数"
+    label: "평균 주문 횟수"
     type: average
     value_format_name: decimal_2
     sql: ${lifetime_orders} ;;
   }
 
   dimension: distinct_months_with_orders {
-    label: "ユニーク受注月数"
+    label: "고유 주문 월 수"
     type: number
     sql: ${TABLE}.number_of_distinct_months_with_orders ;;
   }
@@ -101,14 +101,14 @@ view: user_order_facts {
   ##### Lifetime Behavior - Revenue ######
 
   dimension: lifetime_revenue {
-    label: "累計収益"
+    label: "누적 수익"
     type: number
     value_format_name: usd
     sql: ${TABLE}.lifetime_revenue ;;
   }
 
   dimension: lifetime_revenue_tier {
-    label: "累計収益ティア"
+    label: "누적 수익 티어"
     type: tier
     tiers: [0, 25, 50, 100, 200, 500, 1000]
     sql: ${lifetime_revenue} ;;
@@ -116,7 +116,7 @@ view: user_order_facts {
   }
 
   measure: average_lifetime_revenue {
-    label: "平均収益"
+    label: "평균 수익"
     type: average
     value_format_name: usd
     sql: ${lifetime_revenue} ;;
