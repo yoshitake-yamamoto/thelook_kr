@@ -22,7 +22,7 @@ persist_with: ecommerce_etl_modified
 
 
 explore: order_items {
-  label: "(1) 受注・商品・顧客"
+  label: "(1) 주문・상품・고객"
   view_name: order_items
 
   join: order_facts {
@@ -99,18 +99,18 @@ explore: order_items {
 #########  Event Data Explores #########
 
 explore: events {
-  label: "(2) Webイベントデータ"
+  label: "(2) 웹 이벤트 데이터"
   # sql_always_where: ${product_viewed.brand} in ({{ _user_attributes['brand'] }}) ;;
 
   join: sessions {
-    view_label: "セッション"
+    view_label: "세션"
     type: left_outer
     sql_on: ${events.session_id} =  ${sessions.session_id} ;;
     relationship: many_to_one
   }
 
   join: session_landing_page {
-    view_label: "セッションランディングページ"
+    view_label: "세션 랜딩 페이지"
     from: events
     type: left_outer
     sql_on: ${sessions.landing_event_id} = ${session_landing_page.event_id} ;;
@@ -119,7 +119,7 @@ explore: events {
   }
 
   join: session_bounce_page {
-    view_label: "セッションバウンスページ"
+    view_label: "세션 이탈 페이지"
     from: events
     type: left_outer
     sql_on: ${sessions.bounce_event_id} = ${session_bounce_page.event_id} ;;
@@ -128,7 +128,7 @@ explore: events {
   }
 
   join: product_viewed {
-    view_label: "閲覧された商品"
+    view_label: "조회된 상품"
     from: products
     type: left_outer
     sql_on: ${events.viewed_product_id} = ${product_viewed.id} ;;
@@ -136,7 +136,7 @@ explore: events {
   }
 
   join: users {
-    view_label: "顧客マスタ"
+    view_label: "고객 마스터"
     type: left_outer
     sql_on: ${sessions.session_user_id} = ${users.id} ;;
     relationship: many_to_one
@@ -146,12 +146,12 @@ explore: events {
     type: left_outer
     sql_on: ${users.id} = ${user_order_facts.user_id} ;;
     relationship: one_to_one
-    view_label: "顧客マスタ"
+    view_label: "고객 마스터"
   }
 }
 
 explore: sessions {
-  label: "(3) Webセッションデータ"
+  label: "(3) 웹 세션 데이터"
   # sql_always_where: ${product_viewed.brand} in ({{ _user_attributes['brand'] }}) ;;
 
   join: events {
@@ -206,7 +206,7 @@ explore: sessions {
 #########  Advanced Extensions #########
 
 explore: affinity {
-  label: "(4) アフィニティ分析"
+  label: "(4) 친밀도(affinity) 분석"
 
   always_filter: {
     filters: {
@@ -233,7 +233,7 @@ explore: affinity {
 }
 
 explore: orders_with_share_of_wallet_application {
-  label: "(5) シェア分析"
+  label: "(5) 점유율 분석"
   extends: [order_items]
   view_name: order_items
 
@@ -243,7 +243,7 @@ explore: orders_with_share_of_wallet_application {
 }
 
 explore: journey_mapping {
-  label: "(6) カスタマージャーニーマッピング"
+  label: "(6) 고객 여정 매핑"
   extends: [order_items]
   view_name: order_items
 
@@ -280,7 +280,7 @@ explore: journey_mapping {
 }
 
 explore: inventory_snapshot {
-  label: "(7) 在庫スナップショット分析"
+  label: "(7) 재고 스냅샷 분석"
   join: trailing_sales_snapshot {
     sql_on: ${inventory_snapshot.product_id}=${trailing_sales_snapshot.product_id}
       AND ${inventory_snapshot.snapshot_date}=${trailing_sales_snapshot.snapshot_date};;
@@ -338,7 +338,7 @@ explore: kmeans_model5 {}
 
 
 explore: ecomm_predict {
-  label: "(8) コホート分析"
+  label: "(8) 코호트 분석"
   fields: [ALL_FIELDS*,-centroid_id, -user_id]
   join: users {
     type: left_outer

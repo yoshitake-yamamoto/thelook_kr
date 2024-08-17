@@ -186,7 +186,7 @@ view: order_items {
 
   }
 
-  # 受注日の日本語化 --------------------------------------------------------
+  # 주문일 --------------------------------------------------------
   dimension: created_year{
     group_label: "주문일"
     group_item_label: "년(YYYY)"
@@ -283,7 +283,7 @@ view: order_items {
   }
 
   dimension: months_since_signup {
-    label: "数회원등록후경과월수"
+    label: "회원등록후경과월수"
     view_label: "주문이력"
     type: number
     sql: CAST(FLOOR(TIMESTAMP_DIFF(${created_raw}, ${users.created_raw}, DAY)/30) AS INT64) ;;
@@ -422,7 +422,7 @@ view: order_items {
 ########## Return Information ##########
 
   dimension: is_returned {
-    label: "반품플래그"
+    label: "반품여부"
     type: yesno
     sql: ${returned_raw} IS NOT NULL ;;
   }
