@@ -25,7 +25,7 @@ view: sessions {
   #####  Basic Web Info  ########
 
   measure: count {
-    label: "セッション数"
+    label: "세션数"
     type: count
     drill_fields: [detail*]
   }
