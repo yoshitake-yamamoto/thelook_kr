@@ -28,32 +28,32 @@ view: trailing_sales_snapshot {
 #   }
 
   dimension: product_id {
-    label: "Product ID"
+    label: "상품 ID"
     type: number
     sql: ${TABLE}.product_id ;;
   }
 
   dimension: snapshot_date {
-    label: "Snapshot Date"
+    label: "스냅샷 날짜"
     type: date
     sql: cast(${TABLE}.snapshot_date as timestamp) ;;
   }
 
   dimension: trailing_28d_sales {
-    label: "Sales Trailing 28 days"
+    label: "지난 28일간 매출"
     type: number
     hidden: yes
     sql: ${TABLE}.trailing_28d_sales ;;
   }
 
   measure: sum_trailing_28d_sales {
-    label: "Sum of Sales Trailing 28 Days"
+    label: "지난 28일간 매출 합계"
     type: sum
     sql: ${trailing_28d_sales} ;;
   }
 
   measure: sum_trailing_28d_sales_yesterday {
-    label: "Sum of Sales Trailing 28 days - Yesterday"
+    label: "어제 기준 지난 28일간 매출 합계"
     type: sum
     hidden: yes
     sql: ${trailing_28d_sales} ;;
@@ -64,7 +64,7 @@ view: trailing_sales_snapshot {
   }
 
   measure: sum_trailing_28d_sales_last_wk {
-    label: "Sum of Sales Trailing 28 days - Last Week"
+    label: "지난주 기준 지난 28일간 매출 합계"
     type: sum
     hidden: yes
     sql: ${trailing_28d_sales} ;;
