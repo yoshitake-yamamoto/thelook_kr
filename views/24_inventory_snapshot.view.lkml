@@ -19,39 +19,39 @@ view: inventory_snapshot {
   }
 
   dimension: product_id {
-    label: "Product ID"
+    label: "상품 ID"
     type: number
     sql: ${TABLE}.product_id ;;
   }
 
   dimension: snapshot_date {
-    label: "Snapshot Date"
+    label: "스냅샷날짜"
     type: date
     sql:  cast(${TABLE}.snapshot_date as timestamp) ;;
   }
 
   dimension: number_in_stock {
-    label: "Number in Stock"
+    label: "재고 수"
     type: number
     hidden: yes
     sql: ${TABLE}.number_in_stock ;;
   }
 
   measure: total_in_stock {
-    label: "Total in Stock"
+    label: "총재고수"
     type: sum
     sql: ${number_in_stock} ;;
   }
 
   measure: stock_coverage_ratio {
-    label: "Stock Coverage Ratio"
+    label: "재고 커버리지 비율"
     type: number
     sql: 1.0 * ${total_in_stock} / (11.0*nullif(${trailing_sales_snapshot.sum_trailing_28d_sales},0)) ;;
     value_format_name: decimal_2
   }
 
   measure: sum_stock_yesterday {
-    label: "Sum Stock Yesterday"
+    label: "어제 재고 합계"
     type: sum
     hidden: yes
     sql: ${number_in_stock} ;;
@@ -62,7 +62,7 @@ view: inventory_snapshot {
   }
 
   measure: sum_stock_last_wk {
-    label: "Sum Stock Last Week"
+    label: "지난주 재고 합계"
     type: sum
     hidden: yes
     sql: ${number_in_stock} ;;
@@ -73,7 +73,7 @@ view: inventory_snapshot {
   }
 
   measure: stock_coverage_ratio_yday {
-    label: "Stock Coverage Ratio Yesterday"
+    label: "어제 재고 커버리지 비율"
     type: number
     view_label: "Stock Ratio Changes"
     sql: 1.0 * ${sum_stock_yesterday} / (11*nullif(${trailing_sales_snapshot.sum_trailing_28d_sales_yesterday},0)) ;;
@@ -81,7 +81,7 @@ view: inventory_snapshot {
   }
 
   measure: stock_coverage_ratio_last_wk {
-    label: "Stock Coverage Ratio Last Week"
+    label: "지난주 재고 커버리지 비율"
     type: number
     view_label: "Stock Ratio Changes"
     sql: 1.0 * ${sum_stock_last_wk} / nullif(${trailing_sales_snapshot.sum_trailing_28d_sales_last_wk},0) ;;
@@ -89,7 +89,7 @@ view: inventory_snapshot {
   }
 
   measure: wk_to_wk_change_coverage {
-    label: "WoW Change - Coverage Ratio"
+    label: "주간 변화 - 커버리지 비율"
     view_label: "Stock Ratio Changes"
     sql: round(100*(${stock_coverage_ratio_yday}-${stock_coverage_ratio_last_wk}),1) ;;
     value_format_name: decimal_1
