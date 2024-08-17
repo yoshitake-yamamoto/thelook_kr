@@ -953,7 +953,7 @@
     height: 7
   - name: "<span class='fa fa-laptop'> </span> Web분석"
     type: text
-    title_text: "<span class='fa fa-laptop'> </span> Webアナリティクス"
+    title_text: "<span class='fa fa-laptop'> </span> Web 분석"
     subtitle_text: Web상의고객행동이해
     body_text: "<div style='text-align: center;'> <b>추천액션</b> ：상위브랜드에대해\
       \ 브랜드별대시보드로 이동하여 심층분석</div>"
