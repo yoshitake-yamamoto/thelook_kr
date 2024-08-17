@@ -1,5 +1,5 @@
 - dashboard: customer_lookup
-  title: 顧客ダッシュボード
+  title: 고객 대시보드
   layout: newspaper
   description: ''
   preferred_slug: MDDG8M9Lvb1S2zq5UuhUND
@@ -11,7 +11,7 @@
     tile_text_color: "#3a4245"
     text_tile_text_color: ''
   elements:
-  - title: 顧客情報
+  - title: 고객정보
     name: User Info
     model: thelook_kr
     explore: order_items
@@ -37,7 +37,7 @@
     col: 0
     width: 7
     height: 6
-  - title: 累計受注回数
+  - title: 누적 주문 횟수
     name: Lifetime Orders
     model: thelook_kr
     explore: order_items
@@ -58,7 +58,7 @@
     col: 0
     width: 7
     height: 3
-  - title: 返品回数
+  - title: 반품 횟수
     name: Total Items Returned
     model: thelook_kr
     explore: order_items
@@ -79,7 +79,7 @@
     col: 0
     width: 7
     height: 3
-  - title: 受注履歴
+  - title: 주문 내역
     name: Items Order History
     model: thelook_kr
     explore: order_items
@@ -99,7 +99,7 @@
     col: 0
     width: 16
     height: 5
-  - title: カテゴリー比率
+  - title: 카테고리 비율
     name: Favorite Categories
     model: thelook_kr
     explore: order_items
@@ -130,7 +130,7 @@
     col: 16
     width: 8
     height: 5
-  - title: 所在地
+  - title: 소재지
     name: User Location
     model: thelook_kr
     explore: order_items
