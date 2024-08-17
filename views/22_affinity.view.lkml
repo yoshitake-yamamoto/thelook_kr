@@ -1,5 +1,5 @@
 view: affinity {
-  label: "Affinity"
+  label: "친화도(Affinity)"
   derived_table: {
     #datagroup_trigger: ecommerce_etl_modified
     sql: SELECT
@@ -43,51 +43,51 @@ view: affinity {
   }
 
   measure: count {
-    label: "Count"
+    label: "개수"
     type: count
     drill_fields: [detail*]
   }
 
   dimension: product_a_id {
-    label: "Product A ID"
+    label: "상품 A ID"
     sql: ${TABLE}.product_a_id ;;
   }
 
   dimension: product_b_id {
-    label: "Product B ID"
+    label: "상품 B ID"
     sql: ${TABLE}.product_b_id ;;
   }
 
   dimension: joint_user_freq {
-    label: "Joint User Frequency"
-    description: "The number of users who have purchased both product a and product b"
+    label: "복수구매사용자수"
+    description: "상품 a와 상품 b를 모두 구매한 이용자 수"
     type: number
     sql: ${TABLE}.joint_user_freq ;;
   }
 
   dimension: joint_order_freq {
-    label: "Joint Order Frequency"
-    description: "The number of orders that include both product a and product b"
+    label: "복수구매빈도"
+    description: "제품 a와 제품 b를 모두 포함하는 주문 수"
     type: number
     sql: ${TABLE}.joint_order_freq ;;
   }
 
   dimension: product_a_freq {
-    label: "Product A Frequency"
-    description: "The total number of times product a has been purchased"
+    label: "상품 A 구매 빈도"
+    description: "제품 A가 구매된 총 횟수"
     type: number
     sql: ${TABLE}.product_a_freq ;;
   }
 
   dimension: product_b_freq {
-    label: "Product B Frequency"
-    description: "The total number of times product b has been purchased"
+    label: "상품 B 구매 빈도"
+    description: "제품 B가 구매된 총 횟수"
     type: number
     sql: ${TABLE}.product_b_freq ;;
   }
 
   dimension: user_affinity {
-    label: "User Affinity"
+    label: "사용자친화도(Affinity)"
     hidden: yes
     type: number
     sql: 1.0*${joint_user_freq}/NULLIF((${product_a_freq}+${product_b_freq})-(${joint_user_freq}),0) ;;
@@ -95,7 +95,7 @@ view: affinity {
   }
 
   dimension: order_affinity {
-    label: "Order Affinity"
+    label: "주문친화도(Affinity)"
     hidden: yes
     type: number
     sql: 1.0*${joint_order_freq}/NULLIF((${product_a_freq}+${product_b_freq})-(${joint_order_freq}),0) ;;
@@ -103,7 +103,7 @@ view: affinity {
   }
 
   measure: avg_user_affinity {
-    label: "親和性スコア (顧客履歴ベース)"
+    label: "친화도점수 (고객구매이력기준)"
     description: "Percentage of users that bought both products weighted by how many times each product sold individually"
     type: average
     sql: 100.0 * ${user_affinity} ;;
@@ -111,7 +111,7 @@ view: affinity {
   }
 
   measure: avg_order_affinity {
-    label: "親和性スコア (バスケットベース)"
+    label: "친화도점수 (장바구니기준)"
     description: "Percentage of orders that contained both products weighted by how many times each product sold individually"
     type: average
     sql: 100.0 * ${order_affinity} ;;
@@ -119,7 +119,7 @@ view: affinity {
   }
 
   measure: combined_affinity {
-    label: "Combined Affinity"
+    label: "종합친화도(Affinity)"
     type: number
     sql: ${avg_user_affinity} + ${avg_order_affinity} ;;
   }
@@ -155,19 +155,19 @@ view: user_order_product {
 #   }
 
   dimension: user_id {
-    label: "User ID"
+    label: "사용자 ID"
     type: number
     sql: ${TABLE}.user_id ;;
   }
 
   dimension: prod_id {
-    label: "Prod ID"
+    label: "상품 ID"
     type: number
     sql: ${TABLE}.prod_id ;;
   }
 
   dimension: order_id {
-    label: "Order ID"
+    label: "주문 ID"
     type: number
     sql: ${TABLE}.order_id ;;
   }
@@ -196,12 +196,12 @@ view: total_order_product {
 #   }
 
   dimension: prod_id {
-    label: "Prod ID"
+    label: "상품 ID"
     sql: ${TABLE}.prod_id ;;
   }
 
   dimension: prod_freq {
-    label: "Prod Freq"
+    label: "prod_freq"
     type: number
     sql: ${TABLE}.prod_freq ;;
   }
