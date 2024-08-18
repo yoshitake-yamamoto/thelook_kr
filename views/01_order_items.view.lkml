@@ -336,7 +336,7 @@ view: order_items {
     label: "매상"
     type: number
     value_format_name: usd
-    sql: ${TABLE}.sale_price;;
+    sql: ${TABLE}.sale_price*0.5;;
   }
 
   dimension: gross_margin {
