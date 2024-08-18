@@ -1,6 +1,6 @@
-project_name: "yoshitake_project"
 
+project_name: "yoshitake_project"
 localization_settings: {
-  #default_locale: ja_JP
+  default_locale: ko_KR
   localization_level: permissive
 }
