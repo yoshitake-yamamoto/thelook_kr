@@ -41,7 +41,7 @@ view: inventory_items {
   }
 
   dimension: is_sold {
-    label: "판매플래그"
+    label: "판매여부"
     type: yesno
     sql: ${sold_raw} is not null ;;
   }
