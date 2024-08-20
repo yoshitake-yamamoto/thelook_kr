@@ -442,7 +442,7 @@ view: order_items {
     label: "총반품금액"
     type: sum
     value_format_name: usd
-    sql: ${sale_price}*0.5 ;;
+    sql: ${sale_price}*0.4 ;;
     filters: {
       field: is_returned
       value: "yes"
