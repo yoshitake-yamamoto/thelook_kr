@@ -1,5 +1,5 @@
 
-project_name: "yoshitake_project"
+project_name: "thelook_kr"
 localization_settings: {
   default_locale: ko_KR
   localization_level: permissive
