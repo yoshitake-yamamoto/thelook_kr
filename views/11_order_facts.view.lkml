@@ -1,4 +1,4 @@
-include: "/models/**/thelook_jp.model.lkml"
+#include: "/models/**/thelook_kr.model.lkml"
 view: order_facts {
   view_label: "주문이력"
   derived_table: {

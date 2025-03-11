@@ -12,12 +12,12 @@ include: "/dashboards/*.dashboard.lookml" # include all the views
 #   max_cache_age: "24 hours"
 # }
 
-datagroup: ecommerce_etl_modified {
-  sql_trigger: SELECT MAX(DATE(created_at)) FROM `looker-private-demo.ecomm.events` ;;
-  max_cache_age: "24 hours"
-}
+# datagroup: ecommerce_etl_modified {
+#   sql_trigger: SELECT MAX(DATE(created_at)) FROM `looker-private-demo.ecomm.events` ;;
+#   max_cache_age: "24 hours"
+# }
 
-persist_with: ecommerce_etl_modified
+# persist_with: ecommerce_etl_modified
 ############ Base Explores #############
 
 
